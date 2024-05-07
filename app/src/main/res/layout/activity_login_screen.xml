@@ -1,9 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:weightSum="100"
+    android:padding="20dp"
     tools:context=".LoginScreenActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="30"
+        android:gravity="center"
+        android:textSize="50dp"
+        android:textColor="@color/teal_dark"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        android:text="@string/login">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="20"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.hbb20.CountryCodePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:ccp_showFlag="false"
+            app:ccp_showNameCode="false">
+
+
+        </com.hbb20.CountryCodePicker>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edit_text_hint_login"
+            android:layout_marginHorizontal="6dp"
+            android:inputType="phone"
+            android:elevation="5dp"
+            android:background="@drawable/edit_text_round_ractangle"
+            android:padding="10dp">
+
+        </EditText>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:layout_marginHorizontal="3dp"
+        android:text="@string/otp_button">
+
+    </Button>
+
+    <ProgressBar
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="10">
+
+    </ProgressBar>
+
+</LinearLayout>

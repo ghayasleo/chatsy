@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Chatsy</string>
+    <string name="ImsciencesPeshawar">IMSciences, Peshawar</string>
+    <string name="login">Login</string>
+    <string name="edit_text_hint_login">Enter Phone Number</string>
+    <string name="otp_button">Send OTP</string>
 </resources>
