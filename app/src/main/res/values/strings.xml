@@ -10,4 +10,6 @@
     <string name="resend_otp_code">Resend here</string>
     <string name="resend_code_text">Haven\'t received code?</string>
     <string name="send_verification_text">We sent a verification code to ********</string>
+    <string name="welcome_text">Welcome to </string>
+    <string name="username_text">Enter Username</string>
 </resources>
