@@ -4,4 +4,10 @@
     <string name="login">Login</string>
     <string name="edit_text_hint_login">Enter Phone Number</string>
     <string name="otp_button">Send OTP</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="verify">Verify</string>
+    <string name="otp_code">Enter OTP code</string>
+    <string name="resend_otp_code">Resend here</string>
+    <string name="resend_code_text">Haven\'t received code?</string>
+    <string name="send_verification_text">We sent a verification code to ********</string>
 </resources>
