@@ -43,7 +43,8 @@
         android:layout_marginHorizontal="10dp"
         android:padding="11dp"
         android:background="@drawable/edit_text_round_rectangle"
-        android:elevation="6dp">
+        android:elevation="6dp"
+        android:id="@+id/edit_text_enter_username">
 
     </EditText>
 
@@ -51,14 +52,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        android:text="Done">
+        android:text="Done"
+        android:id="@+id/login_username_done_button">
 
     </Button>
 
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:layout_margin="20dp"
+        android:id="@+id/login_username_progress_bar">
 
     </ProgressBar>
 

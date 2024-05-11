@@ -34,7 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:ccp_showFlag="false"
-            app:ccp_showNameCode="false">
+            app:ccp_showNameCode="false"
+            android:id="@+id/country_code_picker">
 
 
         </com.hbb20.CountryCodePicker>
@@ -47,7 +48,8 @@
             android:inputType="phone"
             android:elevation="5dp"
             android:background="@drawable/edit_text_round_rectangle"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:id="@+id/edit_text_phone_number">
 
         </EditText>
 
@@ -58,14 +60,16 @@
         android:layout_height="wrap_content"
         android:textStyle="normal"
         android:layout_marginHorizontal="3dp"
-        android:text="@string/otp_button">
+        android:text="@string/otp_button"
+        android:id="@+id/send_otp_button">
 
     </Button>
 
     <ProgressBar
         android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:layout_weight="10">
+        android:layout_weight="10"
+        android:id="@+id/login_progress_bar">
 
     </ProgressBar>
 

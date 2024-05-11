@@ -25,6 +25,7 @@
         android:gravity="center"
         android:weightSum="100"
         android:layout_weight="20"
+        android:layout_marginBottom="30dp"
         android:orientation="vertical">
 
         <TextView
@@ -40,13 +41,31 @@
 
         </TextView>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/dark_grey"
-            android:text="@string/send_verification_text">
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/dark_grey"
+                android:text="@string/send_verification_text"
+                android:id="@+id/verification_code_to_number">
 
-        </TextView>
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:textColor="@color/dark_grey"
+                android:text="********"
+                android:id="@+id/show_number_code">
+            </TextView>
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -61,7 +80,8 @@
         android:elevation="5dp"
         android:maxLength="6"
         android:background="@drawable/edit_text_round_rectangle"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:id="@+id/enter_otp_code">
 
     </EditText>
 
@@ -85,7 +105,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/primary_color"
-            android:text="@string/resend_otp_code">
+            android:text="@string/resend_otp_code"
+            android:id="@+id/resend_here_verification">
 
         </TextView>
 
@@ -96,22 +117,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:textStyle="normal"
-        android:text="@string/verify">
+        android:text="@string/verify"
+        android:id="@+id/verify_button">
 
     </Button>
 
     <ProgressBar
         android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:layout_weight="15">
+        android:layout_weight="15"
+        android:id="@+id/otp_confirmation_progress_bar">
 
     </ProgressBar>
-    
-   <TextView
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       >
-
-   </TextView>
 
 </LinearLayout>
