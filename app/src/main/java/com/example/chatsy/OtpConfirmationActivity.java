@@ -71,6 +71,7 @@ public class OtpConfirmationActivity extends AppCompatActivity {
                             @Override
                             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
                                 sendID(phoneAuthCredential);
+                                AndriodUtil.showToast(getApplicationContext(),"Verification Completed.");
                                 setInProgress(false);
                             }
 
