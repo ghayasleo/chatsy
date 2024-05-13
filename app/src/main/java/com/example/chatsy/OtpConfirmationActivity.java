@@ -3,6 +3,7 @@ package com.example.chatsy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,8 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chatsy.utils.AndriodUtil;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.Firebase;
 import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
@@ -57,6 +61,13 @@ public class OtpConfirmationActivity extends AppCompatActivity {
 
         sendOtp(phoneNumber,false);
 
+        verifyButton.setOnClickListener(v -> {
+            String enteredOtp = eEnterOtpCode.getText().toString();
+            PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.getCredential(verificationCode,enteredOtp);
+            signIn(phoneAuthCredential);
+            setInProgress(true);
+        });
+
 
     }
 
@@ -70,7 +81,7 @@ public class OtpConfirmationActivity extends AppCompatActivity {
                         .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                             @Override
                             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                                sendID(phoneAuthCredential);
+                                signIn(phoneAuthCredential);
                                 AndriodUtil.showToast(getApplicationContext(),"Verification Completed.");
                                 setInProgress(false);
                             }
@@ -110,8 +121,22 @@ public class OtpConfirmationActivity extends AppCompatActivity {
         }
 
     }
-    void sendID(PhoneAuthCredential phoneAuthCredential){
-        //phonenumber nd go to next activity
+    void signIn(PhoneAuthCredential phoneAuthCredential){
+        setInProgress(true);
+        mAuth.signInWithCredential(phoneAuthCredential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                setInProgress(false);
+                if(task.isSuccessful()){
+                    Intent intent = new Intent(OtpConfirmationActivity.this, LoginUserNameActivity.class);
+                    intent.putExtra("phone",phoneNumber);
+                    startActivity(intent);
+
+                }else {
+                    AndriodUtil.showToast(getApplicationContext(),"OTP Verification failed.");
+                }
+            }
+        });
     }
 
 

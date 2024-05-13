@@ -51,11 +51,8 @@ public class LoginScreenActivity extends AppCompatActivity {
             startActivity(intent);
 
 
-           // System.out.println("otpScreen activity run successfully.");
-
-
+//             System.out.println("otpScreen activity run successfully.");
 //            Map<String, String> data = new HashMap<>();
-//
 //            FirebaseFirestore.getInstance().collection("Test").add(data);
         }));
 
