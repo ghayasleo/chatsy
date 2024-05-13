@@ -124,6 +124,7 @@ public class OtpConfirmationActivity extends AppCompatActivity {
         }
 
     }
+
     void signIn(PhoneAuthCredential phoneAuthCredential){
         setInProgress(true);
         mAuth.signInWithCredential(phoneAuthCredential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {

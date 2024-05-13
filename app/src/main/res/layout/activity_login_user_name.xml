@@ -41,6 +41,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/username_text"
         android:layout_marginHorizontal="10dp"
+        android:inputType="text"
         android:padding="11dp"
         android:background="@drawable/edit_text_round_rectangle"
         android:elevation="6dp"
