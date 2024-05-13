@@ -68,6 +68,9 @@ public class OtpConfirmationActivity extends AppCompatActivity {
             setInProgress(true);
         });
 
+        tResendHere.setOnClickListener((v)->{
+            sendOtp(phoneNumber,true);
+        });
 
     }
 
