@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:layout_margin="35dp"
+    android:layout_margin="0dp"
+    android:padding="35dp"
     android:weightSum="100"
     tools:context=".LoginUserNameActivity">
 
@@ -44,7 +45,6 @@
         android:inputType="text"
         android:padding="11dp"
         android:background="@drawable/edit_text_round_rectangle"
-        android:elevation="6dp"
         android:id="@+id/edit_text_enter_username">
 
     </EditText>

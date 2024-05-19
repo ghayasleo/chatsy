@@ -10,5 +10,9 @@
     <color name="primary_color">#FF018786</color>
     <color name="secondary_color">#FF018786</color>
     <color name="off_white">#FAF9F6</color>
+    <color name="sender_message_layout_color">#BCDFDF</color>
+    <color name="receive_message_layout_color">#DAD9D9</color>
+    <color name="send_message_text_color">#FF018786</color>
+    <color name="receive_message_text_color">#36454F</color>
 
 </resources>

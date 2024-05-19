@@ -6,14 +6,16 @@ public class UserModel {
     private String phoneNumber;
     private String userName;
     private Timestamp createdTimeStamp; // we'll know when the account was created
+    private String userId;
 
     public UserModel() {
     }
 
-    public UserModel(String phoneNumber, String userName, Timestamp createdTimeStamp) {
+    public UserModel(String phoneNumber, String userName, Timestamp createdTimeStamp, String userId) {
         this.phoneNumber = phoneNumber;
         this.userName = userName;
         this.createdTimeStamp = createdTimeStamp;
+        this.userId = userId;
     }
 
     public String getPhoneNumber() {
@@ -38,5 +40,13 @@ public class UserModel {
 
     public void setCreatedTimeStamp(Timestamp createdTimeStamp) {
         this.createdTimeStamp = createdTimeStamp;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

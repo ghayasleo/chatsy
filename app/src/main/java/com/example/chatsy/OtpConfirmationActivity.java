@@ -91,7 +91,7 @@ public class OtpConfirmationActivity extends AppCompatActivity {
 
                             @Override
                             public void onVerificationFailed(@NonNull FirebaseException e) {
-                                AndriodUtil.showToast(getApplicationContext(), "OTP Verification failed");
+                                AndriodUtil.showToast(getApplicationContext(), "OTP Verification failed1");
                                 setInProgress(false);
                             }
 
