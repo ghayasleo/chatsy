@@ -33,4 +33,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="user">user</string>
     <string name="send_message">Send Message</string>
+    <string name="last_message">Last Message</string>
+    <string name="last_message_time">1:00 pm</string>
+    <string name="phone_number">Enter Phone Number</string>
 </resources>

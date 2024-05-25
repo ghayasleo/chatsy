@@ -1,14 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:fillViewport="true"
     tools:context=".SettingFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/setting_fragment"/>
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_margin="30dp">
 
-</RelativeLayout>
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="@drawable/circular_bg"
+            android:backgroundTint="@color/primary_color"
+            android:src="@drawable/person_icon"
+            android:layout_marginBottom="40dp"
+            android:id="@+id/profile_image_view"
+            android:scaleType="centerCrop"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/username_text"
+            android:layout_margin="10dp"
+            android:inputType="text"
+            android:padding="11dp"
+            android:background="@drawable/edit_text_round_rectangle"
+            android:id="@+id/username_profile">
+
+        </EditText>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/phone_number"
+            android:layout_margin="10dp"
+            android:inputType="text"
+            android:padding="11dp"
+            android:background="@drawable/edit_text_round_rectangle"
+            android:enabled="false"
+            android:id="@+id/phone_number_profile">
+
+        </EditText>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="UPDATE"
+                android:id="@+id/profile_update_btn">
+
+            </Button>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_gravity="center"
+                android:id="@+id/profile_progress_bar">
+
+            </ProgressBar>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textColor="@color/dark_grey"
+            android:layout_marginTop="10dp"
+            android:id="@+id/logout_btn"
+            android:layout_gravity="center" >
+
+        </TextView>
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>
