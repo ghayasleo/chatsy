@@ -3,11 +3,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ChatFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/search_user_layout"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/search_userInput_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toLeftOf="@+id/search_user_btn"
+            android:background="@drawable/edit_text_round_rectangle"
+            android:hint="@string/search_username"
+            android:paddingHorizontal="20dp"
+            android:textSize="15sp"
+            android:paddingVertical="12dp">
+
+        </EditText>
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/search_icon"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/search_user_btn"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/primary_color">
+
+        </ImageButton>
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/search_user_layout"
         android:id="@+id/recycler_view_chat_fragment"/>
 
 <!--    <TextView-->
