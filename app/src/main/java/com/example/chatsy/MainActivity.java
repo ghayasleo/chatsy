@@ -78,11 +78,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getFCMToken() {
+        Log.i("YOLO", "YO WASSUP GANG");
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(task -> {
                     if(task.isSuccessful()){
                         String token = task.getResult();
                         Log.i("My Token: ",token);
+                    } else {
+                        Log.i("ERROR", "AN ERROR OCCURED");
                     }
                 });
     }
