@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.appcheck.FirebaseAppCheck;
+import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.hbb20.CountryCodePicker;
 
@@ -27,8 +29,17 @@ public class LoginScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-      //  FirebaseApp.initializeApp(this);
+
+
         super.onCreate(savedInstanceState);
+
+//        FirebaseApp.initializeApp(this);
+//        // Initialize Firebase App Check with the Play Integrity provider
+//        FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
+//        firebaseAppCheck.installAppCheckProviderFactory(PlayIntegrityAppCheckProviderFactory.getInstance());
+//        ((FirebaseAppCheck) firebaseAppCheck).installAppCheckProviderFactory(
+//                PlayIntegrityAppCheckProviderFactory.getInstance()
+
         setContentView(R.layout.activity_login_screen);
 
 
