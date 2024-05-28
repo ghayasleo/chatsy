@@ -2,6 +2,7 @@ package com.example.chatsy.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,15 @@ public class SearchUserRecyclerAdapter extends FirestoreRecyclerAdapter<UserMode
         if(model.getUserId().equals(FirebaseUtils.currentUserID())){
             holder.usernameText.setText(model.getUserName() +" (Me)");
         }
+
+        FirebaseUtils.getOtherProfilePicStorageRef(model.getUserId()).getDownloadUrl()
+                .addOnCompleteListener(t -> {
+                    if(t.isSuccessful()){
+                        Uri uri = t.getResult();
+                        AndriodUtil.setProfilePic(context,uri,holder.profilePic);
+                    }
+                });
+
 
         holder.itemView.setOnClickListener(v -> {
             // moving toward chatActivity after clicking on searched item

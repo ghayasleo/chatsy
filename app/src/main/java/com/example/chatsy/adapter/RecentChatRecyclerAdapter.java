@@ -2,6 +2,7 @@ package com.example.chatsy.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,15 @@ public class RecentChatRecyclerAdapter extends FirestoreRecyclerAdapter<Chatroom
                         boolean lastMessageSentByMe = model.getLastMessageSenderId().equals(FirebaseUtils.currentUserID());
 
                         UserModel otherUserModel = task.getResult().toObject(UserModel.class);
+
+                        FirebaseUtils.getOtherProfilePicStorageRef(otherUserModel.getUserId()).getDownloadUrl()
+                                .addOnCompleteListener(t -> {
+                                    if(t.isSuccessful()){
+                                        Uri uri = t.getResult();
+                                        AndriodUtil.setProfilePic(context,uri,holder.profilePic);
+                                    }
+                                });
+
                         holder.usernameText.setText(otherUserModel.getUserName());
                         if(lastMessageSentByMe)
                             holder.lastMessageText.setText("You : "+model.getLastMessage());
