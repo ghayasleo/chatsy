@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -13,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.example.chatsy.adapter.ChatRecyclerAdapter;
 import com.example.chatsy.models.ChatMessageModel;
 import com.example.chatsy.models.ChatroomModel;
@@ -26,6 +29,9 @@ import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.Query;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Arrays;
 
 public class ChatActivity extends AppCompatActivity {
@@ -33,7 +39,7 @@ public class ChatActivity extends AppCompatActivity {
     UserModel otherUser;
     String chatroomId;
     ChatroomModel chatroomModel;
-
+    Context context;
     ImageButton backBtn;
     TextView otherUsername;
     EditText sendMessageInput;
@@ -127,14 +133,23 @@ public class ChatActivity extends AppCompatActivity {
                  .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
-                if(task.isSuccessful()){
+                if(task.isSuccessful()) {
+                    String postUrl = "https://fcm.googleapis.com/v1/projects/chatsy-android-app/messages:send";
                     sendMessageInput.setText("");
                 }
             }
         });
-
-
     }
+
+//    public void sendNotification(String KEY) {
+//        RequestQueue requestQueue = Volley.newRequestQueue(context);
+//        JSONObject maonObj = new JSONObject();
+//        try {
+//            JSONObject messageObject = new JSONObject();
+//        } catch(JSONException err) {
+//            err.printStackTrace();
+//        }
+//    }
 
     private void getOrCreateChatroomModel() {
         FirebaseUtils.getChatroomReference(chatroomId).get().addOnCompleteListener(task -> {
