@@ -23,6 +23,7 @@ import com.example.chatsy.models.UserModel;
 import com.example.chatsy.utils.AndriodUtil;
 import com.example.chatsy.utils.FirebaseUtils;
 import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -80,10 +81,18 @@ public class SettingFragment extends Fragment {
         });
 
         logoutBtn.setOnClickListener(v -> {
-            FirebaseUtils.logout();
-            Intent intent = new Intent(getContext(),SplashActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
+
+            FirebaseMessaging.getInstance().deleteToken().addOnCompleteListener(task -> {
+                if(task.isSuccessful()){
+                    FirebaseUtils.logout();
+                    Intent intent = new Intent(getContext(),SplashActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                }
+            });
+
+
+
         });
 
         profilePic.setOnClickListener(v -> {
