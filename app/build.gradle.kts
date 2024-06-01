@@ -31,6 +31,10 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/DEPENDENCIES")
+    }
 }
 
 dependencies {
@@ -58,7 +62,9 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     implementation("com.google.firebase:firebase-appcheck-playintegrity")
     implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
-//    implementation ("com.google.auth:google-auth-library-oauth2-http:1.19.0")
+    implementation ("com.google.auth:google-auth-library-oauth2-http:1.19.0")
+    implementation("com.android.volley:volley:1.2.1")
+//    implementation ("com.google.guava:guava:31.1-android")
 
 
 }
