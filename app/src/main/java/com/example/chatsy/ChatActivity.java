@@ -8,13 +8,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.chatsy.adapter.ChatRecyclerAdapter;
 import com.example.chatsy.models.ChatMessageModel;
@@ -33,6 +36,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -134,22 +139,59 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 if(task.isSuccessful()) {
-                    String postUrl = "https://fcm.googleapis.com/v1/projects/chatsy-android-app/messages:send";
+                    sendNotification(String.valueOf(sendMessageInput.getText()));
                     sendMessageInput.setText("");
                 }
             }
         });
     }
 
-//    public void sendNotification(String KEY) {
-//        RequestQueue requestQueue = Volley.newRequestQueue(context);
-//        JSONObject maonObj = new JSONObject();
-//        try {
-//            JSONObject messageObject = new JSONObject();
-//        } catch(JSONException err) {
-//            err.printStackTrace();
-//        }
-//    }
+    public void sendNotification(String message) {
+        String postUrl = "https://fcm.googleapis.com/v1/projects/chatsy-android-app/messages:send";
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JSONObject mainObj = new JSONObject();
+        FirebaseUtils.currentUserDetails().get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                UserModel currentUserModel = task.getResult().toObject(UserModel.class);
+                try {
+                    JSONObject messageObject = new JSONObject();
+                    JSONObject notificationObject = new JSONObject();
+                    notificationObject.put("title", currentUserModel.getUserName());
+                    notificationObject.put("body", message);
+                    messageObject.put("token", otherUser.getFcmToken());
+                    messageObject.put("notification", notificationObject);
+                    mainObj.put("message", messageObject);
+                    Log.i("MARK", "Test 1");
+
+                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, postUrl, mainObj, response -> {
+                        //
+                    }, volleyError -> {
+                        Log.i("MARK", "Test 2");
+                        Log.i("FATAL ERROR", "" + Arrays.toString(volleyError.getStackTrace()));
+                    }) {
+                        @NonNull
+                        @Override
+                        public Map<String, String> getHeaders() {
+                            AccessToken accessToken = new AccessToken();
+                            String accessKey = accessToken.getAccessToken();
+                            Map<String, String> header = new HashMap<>();
+                            header.put("content-type", "application/json");
+                            header.put("authorization", "Bearer " + accessKey);
+                            return header;
+                        }
+                    };
+
+                    Log.i("MARK", "Test 3");
+                    requestQueue.add(request);
+                    Log.i("MARK", "Test 4");
+
+                } catch(JSONException err) {
+                    Log.e("FATAL ERROR", "" + err.getMessage());
+                    err.printStackTrace();
+                }
+            }
+        });
+    }
 
     private void getOrCreateChatroomModel() {
         FirebaseUtils.getChatroomReference(chatroomId).get().addOnCompleteListener(task -> {
