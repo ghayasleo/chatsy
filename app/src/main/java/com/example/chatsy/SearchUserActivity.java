@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.chatsy.adapter.SearchUserRecyclerAdapter;
 import com.example.chatsy.models.UserModel;
@@ -16,10 +17,11 @@ import com.google.firebase.firestore.Query;
 
 public class SearchUserActivity extends AppCompatActivity {
 
-    ImageButton backButton;
+//    ImageButton backButton;
     ImageButton searchButton;
     EditText searchUserName;
     RecyclerView recyclerView;
+    TextView backButton;
     SearchUserRecyclerAdapter adapter;
 
 
@@ -28,7 +30,7 @@ public class SearchUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_user);
 
-        backButton = findViewById(R.id.back_btn_chat);
+        backButton = findViewById(R.id.back_btn_search_user);
         searchButton = findViewById(R.id.search_user_btn);
         searchUserName = findViewById(R.id.search_userInput_EditText);
         recyclerView = findViewById(R.id.search_recycler_view);

@@ -22,30 +22,41 @@
             android:paddingStart="7dp"
             android:src="@drawable/chatsy_logo2">
         </ImageView>
-<!--        <ImageButton-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:src="@drawable/search_icon"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:background="?attr/selectableItemBackgroundBorderless"-->
-<!--            app:tint="@color/dark_grey"-->
-<!--            android:layout_centerVertical="true">-->
 
-<!--        </ImageButton>-->
-
-
-<!--        <EditText-->
+<!--        <RelativeLayout-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:elevation="5dp"-->
-<!--            android:paddingHorizontal="15dp"-->
-<!--            android:paddingVertical="7dp"-->
-<!--            android:id="@+id/search_bar"-->
-<!--            android:hint="@string/search"-->
-<!--            android:background="@drawable/edit_text_round_rectangle">-->
-<!--        </EditText>-->
+<!--            android:id="@+id/search_user_layout"-->
+<!--            android:gravity="center">-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/search_userInput_EditText"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:layout_toLeftOf="@+id/search_user_btn"-->
+<!--                android:background="@drawable/edit_text_round_rectangle"-->
+<!--                android:elevation="5dp"-->
+<!--                android:hint="@string/search_username"-->
+<!--                android:paddingHorizontal="15dp"-->
+<!--                android:paddingVertical="7dp">-->
+
+<!--            </EditText>-->
+<!--            <ImageButton-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:src="@drawable/search_icon"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:id="@+id/search_user_btn"-->
+<!--                android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--                app:tint="@color/primary_color">-->
+
+<!--            </ImageButton>-->
+<!--        </RelativeLayout>-->
 
     </LinearLayout>
     

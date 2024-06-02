@@ -1,5 +1,6 @@
 package com.example.chatsy;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.example.chatsy.adapter.RecentChatRecyclerAdapter;
 import com.example.chatsy.adapter.SearchUserRecyclerAdapter;
@@ -22,6 +25,8 @@ public class ChatFragment extends Fragment {
 
     RecyclerView recyclerView;
     RecentChatRecyclerAdapter adapter;
+    EditText searchBar;
+    ImageButton searchBtn;
 
     public ChatFragment() {
 
@@ -35,6 +40,19 @@ public class ChatFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_chat, container, false);
         recyclerView = view.findViewById(R.id.recycler_view_chat_fragment);
+        searchBtn = view.findViewById(R.id.search_user_btn);
+        searchBar = view.findViewById(R.id.search_userInput_EditText);
+
+        searchBar.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), SearchUserActivity.class);
+            startActivity(intent);
+
+        });
+
+        searchBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), SearchUserActivity.class);
+            startActivity(intent);
+        });
 
         setupRecyclerView();
 
