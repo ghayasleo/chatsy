@@ -87,8 +87,9 @@
             android:layout_toLeftOf="@+id/search_user_btn"
             android:background="@drawable/edit_text_round_rectangle"
             android:hint="@string/search_username"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="7dp">
+            android:paddingHorizontal="20dp"
+            android:textSize="15sp"
+            android:paddingVertical="12dp">
 
         </EditText>
         <ImageButton

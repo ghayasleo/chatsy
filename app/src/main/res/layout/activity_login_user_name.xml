@@ -43,7 +43,9 @@
         android:hint="@string/username_text"
         android:layout_marginHorizontal="10dp"
         android:inputType="text"
-        android:padding="11dp"
+        android:paddingHorizontal="20dp"
+        android:textSize="15sp"
+        android:paddingVertical="12dp"
         android:background="@drawable/edit_text_round_rectangle"
         android:id="@+id/edit_text_enter_username">
 

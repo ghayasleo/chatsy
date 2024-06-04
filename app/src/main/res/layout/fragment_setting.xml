@@ -28,7 +28,9 @@
             android:hint="@string/username_text"
             android:layout_margin="10dp"
             android:inputType="text"
-            android:padding="11dp"
+            android:paddingHorizontal="20dp"
+            android:textSize="15sp"
+            android:paddingVertical="12dp"
             android:background="@drawable/edit_text_round_rectangle"
             android:id="@+id/username_profile">
 
@@ -39,7 +41,9 @@
             android:hint="@string/phone_number"
             android:layout_margin="10dp"
             android:inputType="text"
-            android:padding="11dp"
+            android:paddingHorizontal="20dp"
+            android:textSize="15sp"
+            android:paddingVertical="12dp"
             android:background="@drawable/edit_text_round_rectangle"
             android:enabled="false"
             android:id="@+id/phone_number_profile">

@@ -81,8 +81,9 @@
         android:elevation="5dp"
         android:maxLength="6"
         android:background="@drawable/edit_text_round_rectangle"
-        android:paddingVertical="10dp"
         android:paddingHorizontal="20dp"
+        android:textSize="15sp"
+        android:paddingVertical="12dp"
         android:id="@+id/enter_otp_code">
 
     </EditText>

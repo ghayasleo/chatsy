@@ -49,9 +49,11 @@
             android:inputType="phone"
             android:background="@drawable/edit_text_round_rectangle"
             android:paddingHorizontal="20dp"
-            android:paddingVertical="10dp"
+            android:textSize="15sp"
+            android:paddingVertical="12dp"
             android:id="@+id/edit_text_phone_number">
         </EditText>
+
     </LinearLayout>
 
     <Button

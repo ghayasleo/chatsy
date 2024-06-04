@@ -26,8 +26,9 @@
             android:background="@drawable/edit_text_round_rectangle"
             android:elevation="5dp"
             android:hint="@string/search_username"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="7dp">
+            android:paddingHorizontal="20dp"
+            android:textSize="15sp"
+            android:paddingVertical="12dp">
 
         </EditText>
         <ImageButton

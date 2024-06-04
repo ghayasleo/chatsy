@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primary_color"
+        android:background="@color/off_white"
         android:paddingVertical="5dp"
         android:id="@+id/tool_bar_searchUser">
 
@@ -24,22 +24,23 @@
             android:layout_marginBottom="8dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/back_btn"
-            app:tint="@color/off_white">
+            app:tint="@color/primary_color">
 
         </ImageButton>
 
-        <include layout="@layout/profile_pic_view"
+        <include
+            android:id="@+id/profile_pic_layout"
+            layout="@layout/profile_pic_view"
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:layout_centerInParent="true"
-            android:layout_toRightOf="@+id/back_btn_chat"
-            android:id="@+id/profile_pic_layout"/>
+            android:layout_toRightOf="@+id/back_btn_chat" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/user"
-            android:textColor="@color/off_white"
+            android:textColor="@color/black"
             android:layout_toRightOf="@+id/profile_pic_layout"
             android:textSize="20dp"
             android:layout_marginStart="14dp"
@@ -50,6 +51,14 @@
         </TextView>
 
     </RelativeLayout>
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/divider"
+        android:layout_above="@id/recycler_view_chatting">
+
+    </com.google.android.material.divider.MaterialDivider>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
@@ -76,13 +85,14 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_toLeftOf="@id/send_message_btn"
+            android:layout_toLeftOf="@+id/send_message_btn"
             android:background="@drawable/edit_text_round_rectangle"
             android:hint="@string/send_message"
-            android:padding="10dp">
+            android:paddingHorizontal="20dp"
+            android:textSize="15sp"
+            android:paddingVertical="12dp">
 
         </EditText>
-
         <ImageButton
             android:id="@+id/send_message_btn"
             android:layout_width="48dp"
